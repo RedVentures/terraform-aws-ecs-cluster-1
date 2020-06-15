@@ -107,3 +107,9 @@ variable "security_group_ids" {
   type    = "list"
   default = []
 }
+
+variable "ignore_changes_autoscaling_group" {
+  default = []
+
+  type = "list"
+}

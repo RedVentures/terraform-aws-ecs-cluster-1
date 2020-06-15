@@ -182,6 +182,8 @@ resource "aws_autoscaling_group" "container_instance" {
 
     ignore_changes = [
       "desired_capacity",
+      "min_size",
+      "max_size",
     ]
   }
 

@@ -6,6 +6,12 @@ variable "environment" {
   default = "Unknown"
 }
 
+variable "shutdown" {
+  type        = bool
+  default     = false
+  description = "(Boolean) Whether or not to shut down this resource for the night"
+}
+
 variable "cluster_name" {
   default = ""
 }

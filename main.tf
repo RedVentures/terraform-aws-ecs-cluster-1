@@ -178,7 +178,7 @@ resource "aws_launch_template" "container_instance" {
     [aws_security_group.container_instance.id],
     var.security_group_ids,
   )
-  
+
   user_data = base64encode(
     data.template_cloudinit_config.container_instance_cloud_config.rendered,
   )
@@ -230,6 +230,12 @@ resource "aws_autoscaling_group" "container_instance" {
   tag {
     key                 = "Environment"
     value               = var.environment
+    propagate_at_launch = true
+  }
+
+  tag {
+    key                 = "shutdown"
+    value               = var.shutdown
     propagate_at_launch = true
   }
 }
